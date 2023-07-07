@@ -1,0 +1,46 @@
+﻿@{
+    Layout = null;
+}
+
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+-->
+<!doctype html>
+<html lang="zxx">
+
+@await Component.InvokeAsync("HeadPartial")
+
+<body>
+    <!--header-->
+    @await Component.InvokeAsync("HeaderPartial")
+    <!-- //header -->
+    <!--banner-slider-->
+    <!-- main-slider -->
+    @await Component.InvokeAsync("MainSliderPartial")
+    <!-- /main-slider -->
+    <!-- //banner-slider-->
+    <!--/grids-->
+    @await Component.InvokeAsync("GridPartial")
+    <!--//grids-->
+    <!-- stats -->
+    @await Component.InvokeAsync("StatsPartial")
+    <!-- //stats -->
+    <!--/-->
+    @await Component.InvokeAsync("Stats2Partial")
+    <!-- //stats -->
+    <!--/w3l-bottom-->
+    @await Component.InvokeAsync("BottomPartial")
+    <!--//w3l-bottom-->
+    <!-- testimonials -->
+    @await Component.InvokeAsync("TestimonialPartial")
+
+    <!-- //testimonials -->
+    <!--/w3l-footer-29-main-->
+    @await Component.InvokeAsync("FooterPartial")
+
+    <!-- Template JavaScript -->
+    @await Component.InvokeAsync("ScriptPartial")
+</body>
+
+</html>

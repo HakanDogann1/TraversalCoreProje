@@ -1,0 +1,76 @@
+﻿@model RegisterViewModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Kayıt Ol</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- LINEARICONS -->
+	<link rel="stylesheet" href="~/colorlib-regform-26/fonts/linearicons/style.css">
+
+	<!-- STYLE CSS -->
+	<link rel="stylesheet" href="~/colorlib-regform-26/css/style.css">
+</head>
+
+<body>
+
+	<div class="wrapper">
+		<div class="inner">
+			<img src="images/image-1.png" alt="" class="image-1">
+			<form method="post">
+				<h3> Kayıt Ol</h3>
+				<div class="form-holder">
+					<span class="lnr lnr-user"></span>
+					<input type="text" class="form-control" asp-for="UserName" placeholder="Kullanıcı Adı">
+				</div>
+				<div>
+					<span asp-validation-for="UserName" style="color:red;"></span>
+				</div>
+				<div class="form-holder">
+					<span class="lnr lnr-phone-handset"></span>
+					<input type="text" class="form-control" asp-for="Phone" placeholder="Telefon Numarası">
+				</div>
+				<div>
+					<span asp-validation-for="Phone" style="color:red;"></span>
+				</div>
+				<div class="form-holder">
+					<span class="lnr lnr-envelope"></span>
+					<input type="text" class="form-control" asp-for="Mail" placeholder="Mail">
+				</div>
+				<div>
+					<span asp-validation-for="Mail" style="color:red;"></span>
+				</div>
+				<div class="form-holder">
+					<span class="lnr lnr-lock"></span>
+					<input type="password" class="form-control" asp-for="Password" placeholder="Şifre">
+				</div>
+				<div>
+					<span asp-validation-for="Password" style="color:red;"></span>
+				</div>
+				<div class="form-holder">
+					<span class="lnr lnr-lock"></span>
+					<input type="password" class="form-control" asp-for="PasswordConfirm" placeholder="Şifre Tekrarı ">
+				</div>
+				<div>
+					<span asp-validation-for="PasswordConfirm" style="color:red;"></span>
+				</div>
+				<div asp-validation-summary="ModelOnly" style="color:red;"></div>
+				<button>
+					<span>Kayıt Ol</span>
+				</button>
+				
+			</form>
+			<img src="~/colorlib-regform-26/images/image-2.png" alt="" class="image-2">
+		</div>
+
+	</div>
+
+	<script src="~/colorlib-regform-26/js/jquery-3.3.1.min.js"></script>
+	<script src="~/colorlib-regform-26//main.js"></script>
+</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+</html>
