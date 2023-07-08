@@ -36,7 +36,7 @@
                             <div class="column">
                                 <a asp-route-id="@item.DestinationID" asp-action="DestinationDetails" asp-controller="Destination"><img src="@item.Image" alt="" class="img-fluid"></a>
                                 <div class="info">
-                                    <h4><a href="blog-single.html">@item.City</a></h4>
+                                    <h4><a asp-route-id="@item.DestinationID" asp-action="DestinationDetails" asp-controller="Destination">@item.City</a></h4>
                                     <p>@item.Capasity </p>
                                     <div class="dst-btm">
                                         <h6 class="">Başlayan Fiyatlarla </h6>

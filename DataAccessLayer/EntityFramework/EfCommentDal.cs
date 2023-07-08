@@ -19,5 +19,11 @@ namespace DataAccessLayer.EntityFramework
             var values = context.Comments.Where(x=>x.DestinationID == id).ToList();
             return values;
         }
+
+        public List<Comment> GetDestinationWithComment()
+        {
+           using var context = new Context();
+            return context.Comments.Include(x=>x.Destination).ToList();
+        }
     }
 }

@@ -1,0 +1,53 @@
+﻿@model EntityLayer.Concrete.Destination
+@{
+    ViewData["Title"] = "UpdateDestination";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Tur Rotası Güncelle</h1>
+
+<div class="container">
+    <form method="post">
+        <input type="hidden" asp-for="DestinationID"/>
+        <div>
+            <label>Şehir</label>
+            <input type="text" class="form-control" asp-for="City" />
+        </div>
+        <div>
+            <label>Tatil Süresi</label>
+            <input type="text" class="form-control" asp-for="DayNight" />
+        </div>
+        <div>
+            <label>Fiyat</label>
+            <input type="text" class="form-control" asp-for="Price" />
+        </div>
+       
+        <div>
+            <label>Resim1</label>
+            <input type="text" class="form-control" asp-for="Image" />
+        </div>
+        <div>
+            <label>Resim2</label>
+            <input type="text" class="form-control" asp-for="Image2" />
+        </div>
+        <div>
+            <label>İçerik</label>
+            <input type="text" class="form-control" asp-for="Description" />
+        </div>
+        <div>
+            <label>Kapasite</label>
+            <input type="text" class="form-control" asp-for="Capasity" />
+        </div>
+        <div>
+            <label>Detay 1</label>
+            <textarea asp-for="Detail1" class="form-control"></textarea>
+        </div>
+        <div>
+            <label>Detay 2</label>
+            <textarea asp-for="Detail2" class="form-control"></textarea>
+        </div>
+        <br />
+        <button class="btn btn-outline-success">Ekle</button>
+    </form>
+
+</div>

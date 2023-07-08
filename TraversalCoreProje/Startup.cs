@@ -18,6 +18,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using TraversalCoreProje.Models.Register;
+using TraversalCoreProje.Container;
 
 namespace TraversalCoreProje
 {
@@ -35,24 +36,7 @@ namespace TraversalCoreProje
         {
             services.AddControllersWithViews();
 
-            services.AddScoped<IDestinationService, DestinationManager>();
-            services.AddScoped<IDestinationDal, EfDestinationDal>();
-
-            services.AddScoped<IFeatureDal, EfFeatureDal>();
-            services.AddScoped<IFeatureService, FeatureManager>();
-
-            services.AddScoped<ITestimonialDal, EfTestimonialDal>();
-            services.AddScoped<ITestimonialService, TestimonialManager>();
-
-            services.AddScoped<ISubAboutDal, EfSubAboutDal>();
-            services.AddScoped<ISubAboutService, SubAboutManager>();
-
-            services.AddScoped<ITestimonialService, TestimonialManager>();
-            services.AddScoped<ITestimonialDal, EfTestimonialDal>();
-
-            services.AddScoped<ICommentService, CommentManager>();
-            services.AddScoped<ICommentDal, EfCommentDal>();
-
+            Extention.ContainerDependency(services);
             services.AddDbContext<Context>();
             services.AddIdentity<AppUser, AppRole>().AddEntityFrameworkStores<Context>().AddErrorDescriber<ErrorDescriberViewModel>();
 
@@ -105,11 +89,28 @@ namespace TraversalCoreProje
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
+              
 
                 endpoints.MapControllerRoute(
         name: "default",
         pattern: "{controller=Comment}/{action=AddComment}/{id?}");
             });
+
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllerRoute(
+                  name: "areas",
+                  pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
+                );
+            });
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllerRoute(
+                  name: "areas",
+                  pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
+                );
+            });
+
         }
     }
 }

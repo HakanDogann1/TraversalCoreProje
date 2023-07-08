@@ -18,6 +18,11 @@ namespace BusinessLayer.Concrete
             _commentDal = commentDal;
         }
 
+        public List<Comment> TGetDestinationWithComment()
+        {
+           return _commentDal.GetDestinationWithComment();
+        }
+
         public void TDelete(Comment entity)
         {
             _commentDal.Delete(entity);
