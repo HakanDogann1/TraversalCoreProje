@@ -19,6 +19,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using TraversalCoreProje.Models.Register;
 using TraversalCoreProje.Container;
+using Microsoft.Extensions.Logging;
+using System.IO;
+using FluentValidation.AspNetCore;
 
 namespace TraversalCoreProje
 {
@@ -34,7 +37,7 @@ namespace TraversalCoreProje
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllersWithViews();
+            services.AddControllersWithViews().AddFluentValidation();
 
             Extention.ContainerDependency(services);
             services.AddDbContext<Context>();
@@ -48,7 +51,13 @@ namespace TraversalCoreProje
                 opt.Filters.Add(new AuthorizeFilter(policy));
                
             });
+            services.AddLogging(opt =>
+            {
+                opt.ClearProviders(); //Önceki providerlarý sil
+                opt.SetMinimumLevel(LogLevel.Debug); // Program debug olduðunda çalýþmaya baþla
+                opt.AddDebug();
 
+            });
             services.ConfigureApplicationCookie(opt =>
             {
                 opt.LoginPath = new PathString("/Login/Index");
@@ -65,8 +74,10 @@ namespace TraversalCoreProje
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env,ILoggerFactory loggerFactory)
         {
+            var path = Directory.GetCurrentDirectory();
+            loggerFactory.AddFile($"{path}\\logs\\log1.txt");
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -77,6 +88,7 @@ namespace TraversalCoreProje
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+            app.UseStatusCodePagesWithReExecute("/ErrorPage/Error404/","?code={0}");
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 

@@ -3,6 +3,7 @@ using BusinessLayer.Concrete;
 using DataAccessLayer.Abstract;
 using DataAccessLayer.EntityFramework;
 using Microsoft.Extensions.DependencyInjection;
+using TraversalCoreProje.Mapping.AutoMapper;
 
 namespace TraversalCoreProje.Container
 {
@@ -36,6 +37,13 @@ namespace TraversalCoreProje.Container
 
             services.AddScoped<IGuideService, GuideManager>();
             services.AddScoped<IGuideDal, EfGuideDal>();
+
+            services.AddScoped<IContactDal, EfContactDal>();
+            services.AddScoped<IContactService, ContactManager>();
+
+            services.AddScoped<IAnnoucementDal, EfAnnoucementDal>();
+            services.AddScoped<IAnnoucementService, AnnoucementManager>();
+            services.AddAutoMapper(typeof(Startup));
         }
     }
 }

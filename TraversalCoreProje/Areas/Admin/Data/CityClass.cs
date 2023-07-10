@@ -1,0 +1,9 @@
+﻿namespace TraversalCoreProje.Areas.Admin.Data
+{
+    public class CityClass
+    {
+        public int CityID { get; set; }
+        public string CityName { get; set; }
+        public string CityCountry { get; set; }
+    }
+}

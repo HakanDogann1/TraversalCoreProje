@@ -1,0 +1,34 @@
+﻿@model List<TraversalCoreProje.Areas.Admin.Models.Accouncement.AnnouncementViewModel>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Duyuru listesi</h1>
+<div class="container">
+    <table class="table table-bordered">
+        <tr>
+            <th>#</th>
+            <th>Başlık</th>
+            <th>içerik</th>
+            <th>Detaylar</th>
+            <th>Sil</th>
+            <th>Güncelle</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.AnnouncementID</td>
+                <td>@item.AnnouncementTitle</td>
+                <td>@item.AnnouncementContent</td>
+                <td><a href="#" class="btn btn-outline-warning">Detay</a></td>
+                <td><a asp-controller="Announcement"asp-action="AnnouncementDelete" asp-route-id="@item.AnnouncementID" class="btn btn-outline-danger">Sil</a></td>
+                <td><a asp-controller="Announcement"asp-action="AnnouncementUpdate" asp-route-id="@item.AnnouncementID" class="btn btn-outline-info">Güncelle</a></td>
+            </tr>
+        }
+    </table>
+    <br />
+    <br />
+    <a href="/Admin/Announcement/AnnouncementAdd/" class="btn btn-outline-dark">Ekle</a>
+</div>
+

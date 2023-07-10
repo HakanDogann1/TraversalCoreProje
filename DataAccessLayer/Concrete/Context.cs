@@ -13,7 +13,7 @@ namespace DataAccessLayer.Concrete
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Server=DESKTOP-NOMRM5V\\SQLEXPRESS;initial catalog=DbTraversal;integrated security=true;");
+            optionsBuilder.UseSqlServer("Server=DESKTOP-NOMRM5V\\SQLEXPRESS;initial catalog=TraversalDb;integrated security=true;");
         }
 
         public DbSet<About> Abouts { get; set; }
@@ -28,5 +28,6 @@ namespace DataAccessLayer.Concrete
         public DbSet<Testimonial> Testimonials { get; set; }
         public DbSet<Comment> Comments { get; set; }
         public DbSet<Reservation> Reservations { get; set; }
+        public DbSet<Announcement> Announcements { get; set; }
     }
 }

@@ -1,0 +1,18 @@
+﻿@model DtoLayer.DTOs.AnnoucementDtos.AnnouncementAddDto
+@{
+    ViewData["Title"] = "AnnouncementAdd";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container">
+    <form method="post">
+        <label>Başlık</label>
+        <input type="text" class="form-control" asp-for="AnnouncementTitle"/>
+        <br />
+        <label>İçerik</label>
+        <input type="text" class="form-control" asp-for="AnnouncementDescription" />
+        <br />
+        <button class="btn btn-outline-success">Ekle</button>
+    </form>
+</div>
+
