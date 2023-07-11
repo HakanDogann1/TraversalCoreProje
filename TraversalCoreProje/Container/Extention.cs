@@ -1,7 +1,10 @@
 ﻿using BusinessLayer.Abstract;
+using BusinessLayer.Abstract.AbstractUow;
 using BusinessLayer.Concrete;
+using BusinessLayer.Concrete.UowManager;
 using DataAccessLayer.Abstract;
 using DataAccessLayer.EntityFramework;
+using DataAccessLayer.UnitOfWork;
 using Microsoft.Extensions.DependencyInjection;
 using TraversalCoreProje.Mapping.AutoMapper;
 
@@ -43,6 +46,11 @@ namespace TraversalCoreProje.Container
 
             services.AddScoped<IAnnoucementDal, EfAnnoucementDal>();
             services.AddScoped<IAnnoucementService, AnnoucementManager>();
+
+            services.AddScoped<IAccountDal, EfAccountDal>();
+            services.AddScoped<IAccountService,AccountManager>();
+            services.AddScoped<IUowDal,UowDal>();
+
             services.AddAutoMapper(typeof(Startup));
         }
     }
