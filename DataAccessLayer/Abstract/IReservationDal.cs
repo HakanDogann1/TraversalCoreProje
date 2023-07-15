@@ -12,5 +12,7 @@ namespace DataAccessLayer.Abstract
     {
         List<Reservation> GetByFilter(Expression<Func<Reservation, bool>> filter);
         List<Reservation> GetByApprovedReservation(int id);
+        void Approve(int id);
+        void Cancel(int id);
     }
 }

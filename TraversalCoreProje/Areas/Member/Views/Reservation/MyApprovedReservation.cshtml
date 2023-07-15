@@ -16,8 +16,8 @@
     @foreach (var item in Model)
     {
      <tr>
-@*         <td>@item.Destination</td>
-*@         <td>@item.PersonCount</td>
+         <td>@item.ReservationID</td>
+         <td>@item.PersonCount</td>
          <td>@DateTime.Parse(item.ReservationDate.ToString()).ToShortDateString()</td>
          <td>@item.Description</td>
          <td>@item.Status</td>

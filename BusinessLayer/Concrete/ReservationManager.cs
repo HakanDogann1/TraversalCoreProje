@@ -18,6 +18,16 @@ namespace BusinessLayer.Concrete
             _reservationDal = reservationDal;
         }
 
+        public void TApprove(int id)
+        {
+            _reservationDal.Approve(id);
+        }
+
+        public void TCancel(int id)
+        {
+            _reservationDal.Cancel(id);
+        }
+
         public void TDelete(Reservation entity)
         {
             _reservationDal.Delete(entity);

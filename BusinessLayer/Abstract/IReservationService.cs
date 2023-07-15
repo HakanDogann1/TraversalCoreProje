@@ -12,5 +12,7 @@ namespace BusinessLayer.Abstract
     {
         List<Reservation> TGetByFilter(Expression<Func<Reservation, bool>> filter);
         List<Reservation> TGetByApprovedReservation(int id);
+        void TApprove(int id);
+        void TCancel(int id);
     }
 }

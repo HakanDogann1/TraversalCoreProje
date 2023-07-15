@@ -1,0 +1,19 @@
+﻿@model TraversalCoreProje.Areas.Admin.Models.Role.AddRoleViewModel
+@{
+    ViewData["Title"] = "AddRole";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="container">
+    <h1>Rol Ekle</h1>
+    <br />
+    <br />
+    <form method="post">
+        <label>Rol Adı</label>
+        <input type="text" class="form-control" asp-for="RoleName"/>
+        <div asp-validation-summary="ModelOnly"></div>
+        <br />
+        <button class="btn btn-outline-success">Ekle</button>
+    </form>
+</div>
+
+

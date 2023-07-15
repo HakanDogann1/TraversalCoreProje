@@ -14,6 +14,22 @@ namespace DataAccessLayer.EntityFramework
 {
     public class EfReservationDal : GenericRepository<Reservation>, IReservationDal
     {
+        public void Approve(int id)
+        {
+           using var context = new Context();
+            var value = context.Reservations.Where(x => x.ReservationID == id).FirstOrDefault();
+            value.Status = "Onaylandı";
+            context.SaveChanges();
+        }
+
+        public void Cancel(int id)
+        {
+            using var context = new Context();
+            var value = context.Reservations.Where(x => x.ReservationID == id).FirstOrDefault();
+            value.Status = "İptal Edildi";
+            context.SaveChanges();
+        }
+
         public List<Reservation> GetByApprovedReservation(int id)
         {
             using var context = new Context();

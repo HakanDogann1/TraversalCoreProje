@@ -22,7 +22,7 @@ namespace TraversalCoreProje.Controllers
         public IActionResult DestinationDetails(int id)
         {
             ViewBag.id = id;
-            var value = _destinationService.TGetByID(id);
+            var value = _destinationService.TGetDestinationWithGuide(id);
             return View(value);
         }
         [HttpPost]

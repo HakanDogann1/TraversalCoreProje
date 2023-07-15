@@ -1,0 +1,94 @@
+﻿@model DtoLayer.DTOs.Contact.SendMessageDto
+@{
+    Layout = null;
+}
+
+<!doctype html>
+<html lang="zxx">
+
+@await Component.InvokeAsync("HeadPartial")
+
+<body>
+    <!--header-->
+    @await Component.InvokeAsync("HeaderPartial")
+    <!-- //testimonials -->
+    <section class="w3l-about-breadcrumb text-left">
+        <div class="breadcrumb-bg breadcrumb-bg-about py-sm-5 py-4">
+            <div class="container">
+                <h2 class="title">Rotalar </h2>
+                <ul class="breadcrumbs-custom-path mt-2">
+                    <li><a href="~/Traversal-Starter2/Traversal-Liberty/Default/Index/">Ana Sayfa</a></li>
+                    <li class="active"><span class="fa fa-arrow-right mx-2" aria-hidden="true"></span> İletişim </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <!-- //about breadcrumb -->
+    <!--  Work gallery section -->
+    <section class="w3l-contact" id="contact">
+        <div class="contact-infubd py-5">
+            <div class="container py-lg-3">
+                <div class="contact-grids row">
+                    <div class="col-lg-6 contact-left">
+                        <div class="partners">
+                            <div class="cont-details">
+                                <h5>Bize Ulaşın</h5>
+                                <p class="mt-3 mb-4">
+                                   Merhaba bu kısımdaki bilgilerinizi doğru bir şekilde doldurarak bizimle iletişime geçebilirsiniz.
+                                </p>
+                            </div>
+                            <div class="hours">
+                                <h6 class="mt-4">Email:</h6>
+                                <p>
+                                    <a href="mailto:mail@traversal.com">
+                                        mail@traversal.com
+                                    </a>
+                                </p>
+                                <h6 class="mt-4">Ziyaret edin:</h6>
+                                <p> 78-80 Upper St Giles St. Norwich NR2 1LT United Kingdom.</p>
+                                <h6 class="mt-4">İletişim:</h6>
+                                <p class="margin-top"><a href="tel:+44-255-366-88">+44-255-366-88</a></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 mt-lg-0 mt-5 contact-right">
+                        <form  method="post" class="signin-form">
+                            <div class="input-grids">
+                                <div class="form-group">
+                                    <input type="email" asp-for="Mail" id="w3lName" placeholder="Mail Adresin*" class="contact-input" />
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" asp-for="Phone" id="w3lSubect" placeholder="Telefon*" class="contact-input" />
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" asp-for="Adress" id="w3lSubect" placeholder="Adres*" class="contact-input" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <textarea asp-for="Description" id="w3lMessage" placeholder="Mesajınızı yazınız...*" required=""></textarea>
+                            </div>
+                            <div class="text-right">
+                                <button class="btn btn-style btn-primary">Mesajı Gönder</button>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+                <div class="map mt-5 pt-md-5">
+                    <h5>Map</h5>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d387145.86654334463!2d-74.25818682528057!3d40.70531100753592!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew+York%2C+NY%2C+USA!5e0!3m2!1sen!2sin!4v1493028309728"
+                            style="border:0" allowfullscreen=""></iframe>
+                </div>
+            </div>
+    </section>
+
+    <link rel="stylesheet" href="~/Traversal-Starter2/Traversal-Liberty/assets/css/style-liberty.css">
+    <script src="~/Traversal-Starter2/Traversal-Liberty/assets/js/bootstrap.min.js"></script>
+    <!--/w3l-footer-29-main-->
+    @await Component.InvokeAsync("FooterPartial")
+
+    <!-- Template JavaScript -->
+    @await Component.InvokeAsync("ScriptPartial")
+</body>
+
+</html>

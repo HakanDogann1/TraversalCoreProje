@@ -1,0 +1,34 @@
+﻿@model List<TraversalCoreProje.Areas.Admin.Models.Role.RoleListViewModel>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<div class="container">
+    <h1>Rol Listesi</h1>
+    <br />
+    <br />
+    <table class="table table-bordered">
+        <tr>
+            <th>#</th>
+            <th>Rol Adı</th>
+            <th>Sil</th>
+            <th>Güncelle</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <th>@item.RoleID</th>
+                <td>@item.RoleName</td>
+                <td><a asp-controller="Role" asp-action="DeleteRole" asp-route-id="@item.RoleID" class="btn btn-outline-danger">Sil</a></td>
+                <td><a asp-controller="Role" asp-action="UpdateRole" asp-route-id="@item.RoleID" class="btn btn-outline-warning">Güncelle</a></td>
+            </tr>
+        }
+    </table>
+    <br />
+    <br />
+    <a asp-controller="Role" asp-action="AddRole" class="btn btn-outline-success">Rol Ekle</a>
+</div>
+
+

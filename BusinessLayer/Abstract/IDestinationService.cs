@@ -11,5 +11,7 @@ namespace BusinessLayer.Abstract
     public interface IDestinationService : IGenericService<Destination>
     {
         List<Destination> TGetListByFilter(Expression<Func<Destination, bool>> filter);
+       Destination TGetDestinationWithGuide(int id);
+        List<Destination> TGetLast4Destination();
     }
 }

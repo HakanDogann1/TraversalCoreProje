@@ -11,5 +11,7 @@ namespace DataAccessLayer.Abstract
     public interface IDestinationDal:IGenericDal<Destination>
     {
         List<Destination> GetListByFilter(Expression<Func<Destination, bool>> filter);
+        Destination GetDestinationWithGuide(int id);
+        List<Destination> GetLast4Destination();
     }
 }
